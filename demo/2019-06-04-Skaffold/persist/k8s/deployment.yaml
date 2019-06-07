@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: persist-deploment
+spec:
+  selector:
+    matchLabels:
+      app: persist
+  template:
+    metadata:
+      labels:
+        app: persist
+    spec:
+      containers:
+        - name: persist
+          image: prj-pf24dev-docker.artifacts.mms-at-work.de/crse/skaffold/persist
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: persist-config
+      imagePullSecrets:
+        - name: regcred

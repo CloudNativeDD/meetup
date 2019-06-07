@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: persist-config
+data:
+  DB_HOSTNAME: "db-service"
+  DB_USERNAME: "postgres"
+  DB_PASSWORD: "cloudnative"

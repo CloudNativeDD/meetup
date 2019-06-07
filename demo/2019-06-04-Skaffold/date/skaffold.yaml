@@ -1,0 +1,16 @@
+apiVersion: skaffold/v1beta11
+kind: Config
+build:
+  artifacts:
+    - image: prj-pf24dev-docker.artifacts.mms-at-work.de/crse/skaffold/date
+      context: dateapp
+      sync:
+        manual:
+          # Sync all the javascript files that are in the src folder
+          # with the container src folder
+          - src: 'src/**/*.js'
+            dest: .
+deploy:
+  kubectl:
+    manifests:
+      - k8s/*.yaml
