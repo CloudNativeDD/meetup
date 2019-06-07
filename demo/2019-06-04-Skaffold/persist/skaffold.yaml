@@ -1,0 +1,10 @@
+apiVersion: skaffold/v1beta11
+kind: Config
+build:
+  artifacts:
+    - image: prj-pf24dev-docker.artifacts.mms-at-work.de/crse/skaffold/persist
+      jibMaven: {}
+deploy:
+  kubectl:
+    manifests:
+      - k8s/*.yaml

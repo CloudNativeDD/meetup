@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${db.hostname}:5432/postgres
+    username: ${db.username}
+    password: ${db.password}
+    hikari:
+      maximum-pool-size: 5
+  jpa:
+    properties:
+      # see https://hibernate.atlassian.net/browse/HHH-12368
+      # and https://github.com/pgjdbc/pgjdbc/issues/1102#issuecomment-388620735
+      hibernate.jdbc.lob.non_contextual_creation: true
+    hibernate:
+      ddl-auto: update

@@ -1,0 +1,13 @@
+@startuml
+
+node "date"
+node "persist"
+database "db"
+
+User --> [date]
+[date] --> [persist]
+[persist] --> [db]
+
+note right of date : NodeJS, \nHTTP POST adds the current date to JSON Body and passes it to persist \nHTTP GET passes call to persist, calculates the time difference to time in body from persist
+note right of persist : Java, \nHTTP POST saves a object with time, payload and id to db\nHTTP GET retrieves object from db
+@enduml

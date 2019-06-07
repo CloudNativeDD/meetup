@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: persist
+spec:
+  type: ExternalName
+  externalName: persist.development.svc.cluster.local
+  ports:
+  - port: 8080

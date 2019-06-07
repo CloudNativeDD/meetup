@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: db-service
+spec:
+  type: ExternalName
+  externalName: db-service.development.svc.cluster.local
+  ports:
+  - port: 5432
